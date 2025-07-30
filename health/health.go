@@ -3,7 +3,7 @@ package health
 import (
 	"encoding/json"
 	"net/http"
-	"os"
+	"time"
 
 	"github.com/gorilla/mux"
 )
@@ -16,11 +16,8 @@ type InfoController struct {
 func (infoController *InfoController) GetInfo(w http.ResponseWriter, r *http.Request) {
 
 	info := map[string]interface{}{
-		"status":         "UP",
-		"build":          os.Getenv("BUILD"),
-		"commit":         os.Getenv("COMMIT"),
-		"branch":         os.Getenv("BRANCH"),
-		"buildTimestamp": os.Getenv("BUILD_TIMESTAMP"),
+		"status":   "UP",
+		"datetime": time.Now().Format(time.RFC3339),
 	}
 
 	w.Header().Set("Content-Type", "application/json")
