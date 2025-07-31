@@ -1,21 +1,18 @@
-package main
+package service
 
 import (
-	"net/http"
-
 	"github.com/brown-zugar/pulse-go/health"
 	"github.com/brown-zugar/pulse-go/info"
 	"github.com/brown-zugar/pulse-go/log"
 	"github.com/gorilla/mux"
-	"go.uber.org/zap"
 )
 
 var router *mux.Router
 
 // init initializes the application by setting up the router and applying middleware.
 // It logs an informational message indicating that the application is starting.
-func init() {
-	log.Info("Pulse Application starting...")
+func loadRoutes() {
+	log.Info("Createting API /pulse")
 	router = mux.NewRouter()
 
 	// ************** API /pulse **************
@@ -24,13 +21,7 @@ func init() {
 	info.RegisterInfoRoutes(router)
 }
 
-// main starts the HTTP server on port 8080 using the provided router.
-// If the server fails to start, it logs the error using zap.
-func main() {
-
-	err := http.ListenAndServe(":8080", router)
-
-	if err != nil {
-		log.Error("Server failed to start: ", zap.Error(err))
-	}
+func Enable() {
+	log.Info("Pulse Application starting...")
+	loadRoutes()
 }
