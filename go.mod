@@ -1,4 +1,4 @@
-module github.com/chava-gnolasco/pulse
+module github.com/brown-zugar/pulse-go
 
 go 1.24.5
 

@@ -3,9 +3,9 @@ package main
 import (
 	"net/http"
 
-	"github.com/chava-gnolasco/pulse/health"
-	"github.com/chava-gnolasco/pulse/info"
-	"github.com/chava-gnolasco/pulse/log"
+	"github.com/brown-zugar/pulse-go/health"
+	"github.com/brown-zugar/pulse-go/info"
+	"github.com/brown-zugar/pulse-go/log"
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"
 )
