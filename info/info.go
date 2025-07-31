@@ -16,7 +16,7 @@ type InfoController struct {
 func (infoController *InfoController) GetInfo(w http.ResponseWriter, r *http.Request) {
 
 	info := map[string]interface{}{
-		"info":           os.Getenv("INFO"),
+		"info":           os.Getenv("PULSE_MOREINFO"),
 		"build":          os.Getenv("BUILD"),
 		"commit":         os.Getenv("COMMIT"),
 		"branch":         os.Getenv("BRANCH"),
