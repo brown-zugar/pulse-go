@@ -21,7 +21,9 @@ func loadRoutes() {
 	info.RegisterInfoRoutes(router)
 }
 
-func Enable() {
+// Enable initializes the Pulse application, loads all routes, and returns the configured HTTP router.
+func Enable() *mux.Router {
 	log.Info("Pulse Application starting...")
 	loadRoutes()
+	return router
 }
